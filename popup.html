@@ -1,0 +1,87 @@
+﻿<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Conversation Booster</title>
+    <link rel="stylesheet" href="popup.css">
+  </head>
+  <body>
+    <main class="shell">
+      <header class="hero">
+        <div class="hero__top">
+          <span class="hero__icon" aria-hidden="true">&#9889;</span>
+          <div>
+            <h1>Conversation Booster</h1>
+            <p>ChatGPT tetap ringan di percakapan panjang</p>
+          </div>
+        </div>
+        <div class="privacy">100% lokal &middot; tanpa tracking</div>
+      </header>
+
+      <section class="settings">
+        <label class="setting setting--toggle">
+          <span>
+            <strong>Aktifkan Booster</strong>
+            <small>Sembunyikan pesan lama dari tampilan.</small>
+          </span>
+          <input id="enabled" type="checkbox" role="switch">
+          <span class="switch" aria-hidden="true"></span>
+        </label>
+
+        <div class="setting setting--stepper">
+          <span>
+            <strong>Pesan yang ditampilkan</strong>
+            <small>Hanya tampilkan N pesan terbaru.</small>
+          </span>
+          <div class="stepper">
+            <button class="stepper__btn" id="msgDecBtn" type="button">−</button>
+            <input id="messagesToShow" class="stepper__input" type="number" min="1" max="500" value="10">
+            <button class="stepper__btn" id="msgIncBtn" type="button">+</button>
+          </div>
+        </div>
+
+        <div class="setting setting--stepper">
+          <span>
+            <strong>Jumlah muat sebelumnya</strong>
+            <small>Pesan yang tampil saat tombol diklik.</small>
+          </span>
+          <div class="stepper">
+            <button class="stepper__btn" id="batchDecBtn" type="button">−</button>
+            <input id="loadBatchSize" class="stepper__input" type="number" min="1" max="500" value="10">
+            <button class="stepper__btn" id="batchIncBtn" type="button">+</button>
+          </div>
+        </div>
+
+        <label class="setting setting--toggle">
+          <span>
+            <strong>Notifikasi singkat</strong>
+            <small>Tampilkan status saat halaman dibuka.</small>
+          </span>
+          <input id="showToast" type="checkbox" role="switch">
+          <span class="switch" aria-hidden="true"></span>
+        </label>
+      </section>
+
+      <section class="stats" aria-label="Status">
+        <div class="stat">
+          <strong id="reducedStat">—</strong>
+          <span>Memori dihemat</span>
+        </div>
+        <div class="stat">
+          <strong id="renderedStat">—</strong>
+          <span>Pesan tampil</span>
+        </div>
+      </section>
+
+      <p id="pageStatus" class="page-status" role="status">Membaca halaman ChatGPT...</p>
+
+      <button id="saveBtn" class="save-btn" type="button">
+        💾 Simpan &amp; Terapkan
+      </button>
+
+      <footer>Versi 2.0.0 &middot; Klik simpan untuk menerapkan.</footer>
+    </main>
+    <script src="popup.js"></script>
+  </body>
+</html>
